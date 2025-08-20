@@ -1,15 +1,14 @@
 import os
-
 class Config:
     """Base configuration settings"""
     SECRET_KEY = os.environ.get('SECRET_KEY', 'dev-key-change-in-production')
-
-    DB_USER = os.environ.get("DB_USER")
-    DB_PASSWORD = os.environ.get("DB_PASSWORD")
+    DB_USER = os.environ.get("SPRING_DATASOURCE_USERNAME")
+    DB_PASSWORD = os.environ.get("SPRING_DATASOURCE_PASSWORD")
     DB_HOST = os.environ.get("DB_HOST")
     DB_PORT = os.environ.get("DB_PORT")
     DB_NAME = os.environ.get("DB_NAME")
-
+    # Add deployment name configuration
+    DEPLOYMENT_NAME = os.environ.get("DEPLOYMENT_NAME", "employeebe")
     SQLALCHEMY_DATABASE_URI = os.environ.get(
         "DATABASE_URL",
         f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
