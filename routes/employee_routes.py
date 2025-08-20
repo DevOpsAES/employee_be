@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 from services.employee_service import EmployeeService
 from utils.helpers import handle_error
 
-employee_bp = Blueprint('employee', __name__, url_prefix='/api')
+employee_bp = Blueprint('employee', __name__, url_prefix='/employeebe')
 employee_service = EmployeeService()
 
 @employee_bp.route('/employees', methods=['GET'])
